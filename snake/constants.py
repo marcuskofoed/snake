@@ -1,0 +1,17 @@
+#COLORS:
+
+BLACK = (0,0,0)
+WHITE = (255,255,255)
+RED = (255,0,0)
+OPAQUE = (255,255,255)
+GREEN = (34,139,34)
+
+#GAME SETTINGS:
+
+TILE_WIDTH = 20
+BOARD = (24,24)
+easyFPS = 10
+normalFPS = 13
+hardFPS = 16
+
+FPS = 10
