@@ -92,4 +92,4 @@ class Snake(pygame.sprite.Sprite):
             self.rects.append(pygame.Rect(body_part[0]*TILE_WIDTH, body_part[1]*TILE_WIDTH, TILE_WIDTH, TILE_WIDTH))
         
         print(f"X: {self.snake_head[0]} Y: {self.snake_head[1]}")
-        
+         

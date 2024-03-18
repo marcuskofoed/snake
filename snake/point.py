@@ -14,7 +14,9 @@ class Point(pygame.sprite.Sprite):
         self.eaten = False
         
     def random_position(self):
-        return (random.randint(0,BOARD[0]))*TILE_WIDTH,(random.randint(0,BOARD[1])*TILE_WIDTH)
+        rand_x = random.randint(0,BOARD[0])*TILE_WIDTH
+        rand_y = random.randint(0,BOARD[1])*TILE_WIDTH
+        return (rand_x, rand_y)
     
     def draw(self, surface):
         surface.blit(self.image, self.rect)    

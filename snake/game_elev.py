@@ -20,6 +20,9 @@ class Game():
         self.menu_items = {"Play":"game", "Settings":"settings"}
         self.settings = ["Back", "Easy", "Normal", "Hard"]
 
+        #self.curTicks = 0
+        #self.prevTricks = 0
+        #self.intervalTicks = 60 jo lavere jo mere flydende 
         self.isSingleplayer = True
         self.mode = "easy"
         self.players = []
@@ -28,6 +31,7 @@ class Game():
         self.all_sprites = pygame.sprite.Group()
         self.menu_sprites = pygame.sprite.Group()
         self.settings_sprites = pygame.sprite.Group()
+        self.block_sprites = pygame.sprite.Group()
 
         self.create_menu()
         self.create_settings()
@@ -113,6 +117,8 @@ class Game():
         self.point = Point(self.screen, constants.GREEN)
         self.all_sprites.add(snake)  
         self.all_sprites.add(self.point)
+        self.all_sprites.add(block) # tilføjer blokken til all_sprites som er en indbygget gruppe i PyGame der grupere game objekts
+        self.block_sprites.add(block)
 
     def reset_game(self):
         self.players = []
@@ -180,6 +186,11 @@ class Game():
 
     def run(self):
         if self.state == "game":
+            #self.curTicks = pygame.time.get_ticks()-self.prevTicks
+            #print(self.curTicks)
+            #if self.curTicks >= self.prevTicks+self.intervalTicks:
+                #self.upfate()
+                #self.prevTicks = self.curTicks
             self.update()
             self.control_game()
 

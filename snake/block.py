@@ -9,16 +9,20 @@ class Block(pygame.sprite.Sprite):
         self.color = color
         self.image = pygame.Surface((TILE_WIDTH, TILE_WIDTH))
         self.image.fill(color)
-        
-        self.block_head = (6, 6)
-        self.block_body = [(6,5), (6,4)]
-        
-        self.rects=[] #List for storing the body parts of the block
-
         self.rect = self.image.get_rect()
+        self.rect.x, self.rect.y = self.random_position()
+    def draw(self, surface):
+        surface.blit(self.image, self.rect)    
+           
+    def random_position(self):
+        rand_x = random.randint(0,BOARD[0])*TILE_WIDTH
+        rand_y = random.randint(0,BOARD[1])*TILE_WIDTH
+        return (rand_x, rand_y)
 
-        self.rect.x = self.block_head[0]*TILE_WIDTH
-        self.rect.y = self.block_head[1]*TILE_WIDTH
-
-        for body_part in self.block_body:
-            self.rects.append(pygame.Rect(body_part[0]*TILE_WIDTH, body_part[1]*TILE_WIDTH, TILE_WIDTH, TILE_WIDTH))
+    """
+    TODO:
+    Random position ala point
+    Tegn denne block på samme måde som point --> self.draw()
+    add to all_sprites
+    lav en colission ved at loope gennem block_sprites og tjekke colissions 
+    """

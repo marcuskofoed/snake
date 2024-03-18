@@ -14,4 +14,4 @@ easyFPS = 10
 normalFPS = 13
 hardFPS = 16
 
-FPS = 10
+FPS = 10 #60
