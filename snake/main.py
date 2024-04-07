@@ -7,7 +7,7 @@ pygame.init()
 
 clock = pygame.time.Clock()
 game = Game()
-
+#clocl
 while game.running:
 
     game.run()
