@@ -111,11 +111,14 @@ class Game():
         self.isSingleplayer = isSingleplayer
         self.mode = mode
         snake = Snake(self.screen, constants.WHITE, mode)
+        snake2 = Snake(self.screen, constants.BLUE, mode)
 
         self.players.append(snake)
+        self.players.append(snake2)
         self.point = Point(self.screen, constants.GREEN)
         self.block = Block(self.screen, constants.RED)
         self.all_sprites.add(snake)  
+        self.all_sprites.add(snake2) 
         self.all_sprites.add(self.point)
         self.all_sprites.add(self.block) # tilføjer blokken til all_sprites som er en indbygget gruppe i PyGame der grupere game objekts
         self.block_sprites.add(self.block)
