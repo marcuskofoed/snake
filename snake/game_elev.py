@@ -111,14 +111,14 @@ class Game():
         self.isSingleplayer = isSingleplayer
         self.mode = mode
         snake = Snake(self.screen, constants.WHITE, mode)
-        block = Block(self.screen, constants.RED)
 
         self.players.append(snake)
         self.point = Point(self.screen, constants.GREEN)
+        self.block = Block(self.screen, constants.RED)
         self.all_sprites.add(snake)  
         self.all_sprites.add(self.point)
-        self.all_sprites.add(block) # tilføjer blokken til all_sprites som er en indbygget gruppe i PyGame der grupere game objekts
-        self.block_sprites.add(block)
+        self.all_sprites.add(self.block) # tilføjer blokken til all_sprites som er en indbygget gruppe i PyGame der grupere game objekts
+        self.block_sprites.add(self.block)
 
     def reset_game(self):
         self.players = []
@@ -150,7 +150,9 @@ class Game():
                 self.point.kill()  
                 self.point = Point(self.screen, constants.GREEN)
                 self.all_sprites.add(self.point)
-
+            if player.rect.colliderect(self.block):
+                self.reset_game()
+                
             if player.dead:
                 self.reset_game()
 
